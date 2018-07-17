@@ -1,0 +1,15 @@
+.idea
+.cache
+.coverage
+.pytest_cache
+.eggs
+.Rhistory
+.Rproj.user
+build
+dist
+venv
+nbrmd.egg-info
+nbrmd.Rproj
+*.pyc
+gits*
+.ipynb_checkpoints
