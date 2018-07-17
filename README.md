@@ -32,6 +32,8 @@ pip install nbrmd nbsrc --upgrade
 jupyter notebook
 ```
 
+## Per notebook configuration
+
 With the above configuration, every notebook will have a companion `.py` file.
 
 If you prefer that the companion script be generated only for a few notebooks,
