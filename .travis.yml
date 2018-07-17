@@ -11,6 +11,7 @@ install:
   - pip install codecov
   - pip install pytest pytest-cov testfixtures
   - pip install notebook
+  - pip install pyyaml
   - pip install -r requirements.txt
   - pip install .
 # command to run tests
