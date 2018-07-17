@@ -8,8 +8,8 @@
 build
 dist
 venv
-nbrmd.egg-info
-nbrmd.Rproj
+nbsrc.egg-info
+nbsrc.Rproj
 *.pyc
 gits*
 .ipynb_checkpoints
