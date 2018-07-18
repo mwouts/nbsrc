@@ -7,7 +7,6 @@ Use the 'nbsrc' conversion script to convert Jupyter notebooks from/to
 R or Python scripts
 """
 
-from nbrmd import readf, writef, writes, reads, notebook_extensions
 from .nbsrc import readme
 
 try:

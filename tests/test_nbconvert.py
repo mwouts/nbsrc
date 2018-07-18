@@ -1,4 +1,5 @@
 import nbsrc
+import nbrmd
 import pytest
 from .utils import list_all_notebooks
 import subprocess
@@ -10,10 +11,10 @@ import os
 @pytest.mark.parametrize('nb_file', list_all_notebooks('.ipynb'))
 def test_nbconvert_and_read_py(nb_file):
     # Load notebook
-    nb = nbsrc.readf(nb_file)
+    nb = nbrmd.readf(nb_file)
 
     # Export to py using nbsrc package
-    py1 = nbsrc.writes(nb, ext='.py')
+    py1 = nbrmd.writes(nb, ext='.py')
 
     # Export to py using nbconvert exporter
     py_exporter = nbsrc.PyNotebookExporter()
@@ -36,8 +37,8 @@ def test_nbconvert_cmd_line_py(nb_file, tmpdir):
 
     assert os.path.isfile(py_file)
 
-    nb = nbsrc.readf(nb_file)
-    py1 = nbsrc.writes(nb, ext='.py')
+    nb = nbrmd.readf(nb_file)
+    py1 = nbrmd.writes(nb, ext='.py')
     with open(py_file) as fp:
         py2 = fp.read()
 
@@ -55,8 +56,8 @@ def test_nbconvert_cmd_line_R(nb_file, tmpdir):
 
     assert os.path.isfile(r_file)
 
-    nb = nbsrc.readf(nb_file)
-    r = nbsrc.writes(nb, ext='.R')
+    nb = nbrmd.readf(nb_file)
+    r = nbrmd.writes(nb, ext='.R')
     with open(r_file) as fp:
         r2 = fp.read()
 
