@@ -74,7 +74,7 @@ Python notebook in Jupyter  | Python script
 
 `.R` scripts follow the [standard](https://rmarkdown.rstudio.com/articles_report_from_r_script.html) for that language.
 
-Designing a comfortable standard for `.py` scripts is not trivial. The current format is documented [here](https://github.com/mwouts/nbrmd/blob/master/tests/python_notebook_sample.py)
+Designing a comfortable standard for `.py` scripts is not trivial. The current format is documented [here](https://github.com/mwouts/nbrmd/blob/master/tests/python_notebook_sample.py).
 
 ## Command line conversion
 
