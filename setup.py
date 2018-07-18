@@ -3,7 +3,7 @@ from nbsrc.nbsrc import readme
 
 setup(
     name='nbsrc',
-    version='0.3.0',
+    version='0.4.0',
     author='Marc Wouts',
     author_email='marc.wouts@gmail.com',
     description='Jupyter notebooks from/to python and R scripts',
@@ -19,7 +19,7 @@ setup(
     tests_require=['pytest', 'testfixtures'],
     install_requires=['nbformat>=4.0.0', 'mock', 'pyyaml'],
     license='MIT',
-    classifiers=('Development Status :: 3 - Alpha',
+    classifiers=('Development Status :: 4 - Beta',
                  'Environment :: Console',
                  'Framework :: Jupyter',
                  'Intended Audience :: Science/Research',
