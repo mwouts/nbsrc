@@ -14,8 +14,8 @@ With this you will be able to
 - set the `.py` or `.R` script under version control
 - modify the script outside of Jupyter, and easily merge multiple contributions
 to the notebook using standard, text merge tools
-- reload the latest version of the notebook from the `.py` or `.R` script. Outputs
-for the cells with unchanged input are taken from the `.ipynb` file.
+- reload the latest version of the notebook from the `.py` or `.R` script. 
+Outputs for the cells with unchanged input are taken from the `.ipynb` file.
 
 ## How do I activate the companion script?
 
@@ -26,9 +26,9 @@ c.NotebookApp.contents_manager_class = 'nbrmd.RmdFileContentsManager'
 c.ContentsManager.default_nbrmd_formats = ['.ipynb', '.py']
 ```
 
-Then, make sure you have the `nbsrc` and `nbrmd` packages installed, and re-start jupyter, i.e. run
+Then, make sure you have the `nbrmd` packages installed, and re-start jupyter, i.e. run
 ```bash
-pip install nbrmd nbsrc --upgrade
+pip install nbrmd --upgrade
 jupyter notebook
 ```
 
@@ -58,12 +58,37 @@ In case you want both `.py` and `.Rmd`, please note that the
 order matters: the first non-`.ipynb` extension
 is the one used as the reference source for notebook inputs.
 
+## Can I edit the python file?
+
+Yes, please! That's the precise purpose for the `nbsrc` package. When you're done, please _reload_ the notebook, i.e. refresh your notebook in the browser. Note that the url should have only the notebook name (no additional #), like 
+`http://localhost:8888/notebooks/GitHub/nbrmd/tests/python_notebook_sample.ipynb`.
+
+As mentioned above, reloading the `.ipynb` with actually load updated inputs from the python script.
+
+It is not required to _restart_ the current kernel. Reloading may remove a few outputs (those corresponding to inputs you have changed), but it will preserve the python variables.
+
+Python notebook in Jupyter  | Python script
+:--------------------------:|:-----------------------:
+![](https://raw.githubusercontent.com/mwouts/nbsrc/master/img/python_notebook.png)   | ![](https://raw.githubusercontent.com/mwouts/nbsrc/master/img/python_source.png)
+
+
+## How do you represent notebooks as scripts?
+
+`.R` scripts follow the [standard](https://rmarkdown.rstudio.com/articles_report_from_r_script.html) for that language.
+
+Designing a comfortable standard for `.py` scripts is not trivial. The current format is documented [here](https://github.com/mwouts/nbrmd/blob/master/tests/python_notebook_sample.py)
+
 ## Command line conversion
 
-The package also provides a `nbsrc` script that converts Jupyter notebooks
+The `nbsrc` package provides a `nbsrc` script that converts Jupyter notebooks
  to R or python scripts, and vice-versa.
+ 
+Install it with 
+```
+pip install nbsrc --upgrade
+```
 
-Use it as:
+and then use it as:
 ```bash
 nbsrc jupyter.ipynb         # this prints the `.py` or `.R` alternative
 nbsrc jupyter.ipynb -i      # this creates a jupyter.py or jupyter.R file
@@ -79,6 +104,6 @@ nbconvert jupyter.ipynb --to rnotebook
 
 ## And if I convert twice?
 
-Round trip conversion of scripts is identity.
+Round trip conversion of scripts is identity.  
 Round trip conversion of Jupyter notebooks preserves the source, not outputs.
 
