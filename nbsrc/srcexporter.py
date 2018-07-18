@@ -1,4 +1,4 @@
-import nbsrc
+import nbrmd
 from traitlets import default
 from nbconvert.exporters import Exporter
 
@@ -15,7 +15,7 @@ class PyNotebookExporter(Exporter):
     def from_notebook_node(self, nb, resources=None, **kw):
         resources = resources or {}
         resources['output_extension'] = self.file_extension
-        return nbsrc.writes(nb, ext='.py'), resources
+        return nbrmd.writes(nb, ext='.py'), resources
 
 
 class RNotebookExporter(Exporter):
@@ -30,4 +30,4 @@ class RNotebookExporter(Exporter):
     def from_notebook_node(self, nb, resources=None, **kw):
         resources = resources or {}
         resources['output_extension'] = self.file_extension
-        return nbsrc.writes(nb, ext='.R'), resources
+        return nbrmd.writes(nb, ext='.R'), resources

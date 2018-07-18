@@ -1,7 +1,7 @@
 import pytest
 import os
 from shutil import copyfile
-import nbsrc
+import nbrmd
 from nbsrc.cli import convert, cli
 from .utils import list_all_notebooks, remove_outputs
 
@@ -30,8 +30,8 @@ def test_convert_single_file_in_place(nb_file, tmpdir):
     copyfile(nb_file, nb_org)
     convert([nb_org])
 
-    nb1 = nbsrc.readf(nb_org)
-    nb2 = nbsrc.readf(nb_other)
+    nb1 = nbrmd.readf(nb_org)
+    nb2 = nbrmd.readf(nb_other)
 
     remove_outputs(nb1) == remove_outputs(nb2)
 
@@ -65,8 +65,8 @@ def test_convert_multiple_file(nb_files, tmpdir):
     convert(nb_orgs)
 
     for nb_org, nb_other in zip(nb_orgs, nb_others):
-        nb1 = nbsrc.readf(nb_org)
-        nb2 = nbsrc.readf(nb_other)
+        nb1 = nbrmd.readf(nb_org)
+        nb2 = nbrmd.readf(nb_other)
         remove_outputs(nb1) == remove_outputs(nb2)
 
 

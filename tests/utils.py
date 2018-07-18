@@ -2,15 +2,13 @@ import os
 import copy
 
 
-def list_all_notebooks(ext, path=None):
+def list_all_notebooks(ext):
     """
     :ext: desired extension
     :return: all notebooks in the directory of this script,
      with the desired extension
     """
     nb_path = os.path.dirname(os.path.abspath(__file__))
-    if path:
-        nb_path = os.path.join(nb_path, path)
     notebooks = []
     for nb_file in os.listdir(nb_path):
         file, nb_ext = os.path.splitext(nb_file)
@@ -31,14 +29,4 @@ def remove_outputs(nb):
         if k in nb:
             del nb[k]
 
-    for k in ['nbrmd_formats', 'nbrmd_sourceonly_format']:
-        if k in nb.metadata:
-            del nb.metadata[k]
-
-    return nb
-
-
-def remove_outputs_and_header(nb):
-    nb = remove_outputs(nb)
-    nb['metadata'] = {}
     return nb
