@@ -8,13 +8,11 @@
 
 This package provides companion scripts (`.py` or `.R` extension)
 to your Jupyter notebooks, that are always *synchronized*
-with the notebook.
-
-With this you will be able to
+with the notebook. With this you will be able to
 - set the `.py` or `.R` script under version control
 - modify the script outside of Jupyter, and easily merge multiple contributions
 to the notebook using standard, text merge tools
-- reload the latest version of the notebook from the `.py` or `.R` script. 
+- reload the latest version of the notebook from the `.py` or `.R` script.  
 Outputs for the cells with unchanged input are taken from the `.ipynb` file.
 
 ## How do I activate the companion script?
@@ -23,7 +21,7 @@ Outputs for the cells with unchanged input are taken from the `.ipynb` file.
 - edit the config and include the below:
 ```python
 c.NotebookApp.contents_manager_class = 'nbrmd.RmdFileContentsManager'
-c.ContentsManager.default_nbrmd_formats = ['.ipynb', '.py']
+c.ContentsManager.default_nbrmd_formats = 'ipynb,py'
 ```
 
 Then, make sure you have the `nbrmd` packages installed, and re-start jupyter, i.e. run
@@ -48,7 +46,7 @@ configuration, and instead edit the notebook metadata as follows:
   "language_info": {
     (...)
   },
-  "nbrmd_formats": [".ipynb", ".py"]
+  "nbrmd_formats": "ipynb,py"
 }
 ```
 
