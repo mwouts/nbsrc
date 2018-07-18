@@ -1,4 +1,4 @@
-import nbsrc
+import nbrmd
 from traitlets import default
 from nbconvert.exporters import Exporter
 

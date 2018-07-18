@@ -23,6 +23,23 @@ def test_nbconvert_and_read_py(nb_file):
     assert py1 == py2
 
 
+@pytest.mark.skipif(isinstance(nbsrc.PyNotebookExporter, str),
+                    reason=nbsrc.PyNotebookExporter)
+@pytest.mark.parametrize('nb_file', list_all_notebooks('.ipynb'))
+def test_nbconvert_and_read_r(nb_file):
+    # Load notebook
+    nb = nbrmd.readf(nb_file)
+
+    # Export to py using nbsrc package
+    r1 = nbrmd.writes(nb, ext='.R')
+
+    # Export to py using nbconvert exporter
+    r_exporter = nbsrc.RNotebookExporter()
+    (r2, resources) = r_exporter.from_notebook_node(nb)
+
+    assert r1 == r2
+
+
 pytest.importorskip('jupyter')
 
 
