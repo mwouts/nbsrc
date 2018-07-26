@@ -1,5 +1,9 @@
+from os import path
 from setuptools import setup, find_packages
-from nbsrc.nbsrc import readme
+
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md')) as f:
+    long_description = f.read()
 
 setup(
     name='nbsrc',
@@ -7,7 +11,7 @@ setup(
     author='Marc Wouts',
     author_email='marc.wouts@gmail.com',
     description='Jupyter notebooks from/to python and R scripts',
-    long_description=readme(),
+    long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/mwouts/nbsrc',
     packages=find_packages(),

@@ -14,6 +14,13 @@ dev
 - All code moved to `nbrmd` package (#3)
 - Only README remains in `nbsrc` (#3)
 
+0.4.5 (2018-07-26)
++++++++++++++++++++
+
+**BugFixes**
+
+- Removed dependency of `setup.py` on `nbsrc`
+
 0.4.4 (2018-07-26)
 +++++++++++++++++++
 
