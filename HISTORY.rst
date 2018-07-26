@@ -6,6 +6,14 @@ Release History
 dev
 +++
 
+0.4.3 (2018-07-25)
++++++++++++++++++++
+
+**Improvements**
+
+- Readme refactored, notebook demos available on binder #23
+- Based on nbrmd 0.4.3 (multiline comments now supported)
+
 0.4.0 (2018-07-18)
 +++++++++++++++++++
 
