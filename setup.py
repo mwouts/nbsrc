@@ -3,7 +3,7 @@ from nbsrc.nbsrc import readme
 
 setup(
     name='nbsrc',
-    version='0.4.3',
+    version='0.4.4',
     author='Marc Wouts',
     author_email='marc.wouts@gmail.com',
     description='Jupyter notebooks from/to python and R scripts',
