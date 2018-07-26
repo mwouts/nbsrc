@@ -13,10 +13,10 @@ rich outputs. Here we offer a simple and complementary format for Jupyter
 notebooks, as pure python (or R) companion scripts.
 
 The resulting python scripts are perfect candidates for
-keeping notebooks under *version control*. They can be
-*edited* outside of Jupyter, using
+keeping notebooks under version control. They can be
+edited outside of Jupyter, using
 your favorite text editor, or even standard merge tools if you wish to merge
-*multiple contributions* to a notebook.
+multiple contributions to a notebook.
 
 With the `nbsrc` package, any python or R script can be loaded as a notebook
 in Jupyter. If a classical `ipynb` notebook with a matching name exists,
@@ -28,10 +28,9 @@ outside of Jupyter.
 ## Can I have a demo?
 
 Sure. Try our package on [binder](https://mybinder.org/v2/gh/mwouts/nbrmd/master?filepath=demo)!
-
 There, you will be able
 - to open and execute arbitrary python files as notebooks (give a try to
-the matplotlib demo named `filled_step.py`, for instance)
+the matplotlib demo named `filled_step.py`)
 - to open a notebook, then edit the companion python script, and reload the notebook,
 to find up-to-date inputs in Jupyter.
 
@@ -39,10 +38,10 @@ to find up-to-date inputs in Jupyter.
 
 Below is an example of a Jupyter notebook, together with its python representation.
 
-We have a battery of tests that ensure that
-- Round trip conversion: python to notebook to python, is *identity*
-- Round trip conversion, starting from a Jupyter notebook, preserve *source*
-and *metadata*, not outputs. In some occasions (consecutive blank lines in
+We have hundreds of tests that ensure that
+- Round trip conversion: python to notebook to python, is identity
+- Round trip conversion, starting from a Jupyter notebook, preserves source
+and metadata, not outputs. In some occasions (consecutive blank lines in
 code cells), cells may be splitted into smaller ones.
 
 Python [notebook](https://mybinder.org/v2/gh/mwouts/nbrmd/master?filepath=tests/python_notebook_sample.py) in Jupyter  | Python [script](https://github.com/mwouts/nbrmd/blob/master/tests/python_notebook_sample.py)
@@ -60,11 +59,24 @@ c.NotebookApp.contents_manager_class = 'nbrmd.RmdFileContentsManager'
 c.ContentsManager.default_nbrmd_formats = 'ipynb,py'
 ```
 
-Then, make sure you have the `nbrmd` package up-to-date, and re-start jupyter, i.e. run
+Then, make sure you have the [`nbrmd`](https://github.com/mwouts/nbrmd)
+package up-to-date, and re-start jupyter, i.e. run
 ```bash
 pip install nbrmd --upgrade
 jupyter notebook
 ```
+
+With the above configuration, every Jupyter notebook will have a companion
+`.py` script. And every `.py` script that you edit in Jupyter
+will have a companion `.ipynb` notebook.
+
+If you prefer the `.ipynb` notebook not to be created by Jupyter when a `.py`
+script is edited, set
+```
+c.ContentsManager.default_nbrmd_formats = ''
+```
+(as the default value is `ipynb`). Outputs for scripts, however,
+will not be saved any more.
 
 ## Per notebook configuration
 
@@ -94,7 +106,8 @@ is the one used as the reference source for notebook inputs.
 
 ## What is the difference between `nbsrc` and `nbrmd`?
 
-`nbrmd` is a python package that represents Jupyter notebooks as R markdown
+[`nbrmd`](https://github.com/mwouts/nbrmd)
+is a python package that represents Jupyter notebooks as R markdown
 files. It is also where notebooks as python scripts are implemented. But
 I felt notebooks as scripts deserved a standalone documentation, and
 that's the main reason for having the `nbsrc` package.
