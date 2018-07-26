@@ -7,8 +7,6 @@ NB: read, write methods, as well as ContentsManager, are to be found in the
 nbrmd package
 """
 
-from .nbsrc import readme
-
 try:
     from .srcexporter import PyNotebookExporter
     from .srcexporter import RNotebookExporter
