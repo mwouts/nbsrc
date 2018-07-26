@@ -1,9 +1,9 @@
-import nbsrc
-import nbrmd
-import pytest
-from .utils import list_all_notebooks
-import subprocess
 import os
+import subprocess
+import pytest
+import nbrmd
+import nbsrc
+from .utils import list_all_notebooks
 
 
 @pytest.mark.skipif(isinstance(nbsrc.PyNotebookExporter, str),

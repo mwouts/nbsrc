@@ -1,11 +1,14 @@
+"""Command line conversion tool `nbsrc`
+"""
+
 import os
+import argparse
 from nbformat import writes as ipynb_writes
+from nbformat.reader import NotJSONError
 from nbrmd import readf, writef
 from nbrmd import writes
 from nbrmd.languages import get_default_language
 from nbrmd.combine import combine_inputs_with_outputs
-from nbformat.reader import NotJSONError
-import argparse
 
 
 def convert(nb_files, in_place=True, combine=True):
@@ -27,7 +30,7 @@ def convert(nb_files, in_place=True, combine=True):
 
         nb = readf(nb_file)
         main_language = get_default_language(nb)
-        ext_dest = '.R' if main_language is 'R' else '.py'
+        ext_dest = '.R' if main_language == 'R' else '.py'
 
         if in_place:
             if ext == '.ipynb':
@@ -42,8 +45,8 @@ def convert(nb_files, in_place=True, combine=True):
                         nb_outputs = readf(nb_dest)
                         combine_inputs_with_outputs(nb, nb_outputs)
                         msg = '(outputs were preserved)'
-                    except (IOError, NotJSONError) as e:
-                        msg = '(outputs could not be preserved: {})'.format(e)
+                    except (IOError, NotJSONError) as error:
+                        msg = '(outputs were not preserved: {})'.format(error)
                 print('R Markdown {} being converted to '
                       'Jupyter notebook {} {}'
                       .format(nb_file, nb_dest, msg))
@@ -56,6 +59,11 @@ def convert(nb_files, in_place=True, combine=True):
 
 
 def cli(args=None):
+    """
+    Command line parser
+    :param args:
+    :return:
+    """
     parser = argparse.ArgumentParser(description='Jupyter notebook '
                                                  'from/to R or Python script')
     parser.add_argument('notebooks',
@@ -72,5 +80,9 @@ def cli(args=None):
 
 
 def main():
+    """
+    Entry point for the nbsrc script
+    :return:
+    """
     args = cli()
     convert(args.notebooks, args.in_place, args.preserve_outputs)
