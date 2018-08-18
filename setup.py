@@ -3,7 +3,7 @@ from nbsrc.nbsrc import readme
 
 setup(
     name='nbsrc',
-    version='0.4.4',
+    version='0.5.0',
     author='Marc Wouts',
     author_email='marc.wouts@gmail.com',
     description='Jupyter notebooks from/to python and R scripts',
@@ -11,13 +11,7 @@ setup(
     long_description_content_type='text/markdown',
     url='https://github.com/mwouts/nbsrc',
     packages=find_packages(),
-    entry_points={'console_scripts': ['nbsrc = nbsrc.cli:main'],
-                  'nbconvert.exporters': [
-                      'pynotebook = nbsrc:PyNotebookExporter',
-                      'rnotebook = nbsrc:RNotebookExporter'
-                  ]},
-    tests_require=['pytest', 'testfixtures'],
-    install_requires=['nbformat>=4.0.0', 'mock', 'pyyaml'],
+    install_requires=['nbrmd'],
     license='MIT',
     classifiers=('Development Status :: 4 - Beta',
                  'Environment :: Console',

@@ -6,6 +6,14 @@ Release History
 dev
 +++
 
+0.5.0 (2018-08-18)
++++++++++++++++++++
+
+**Improvement**
+
+- All code moved to `nbrmd` package (#3)
+- Only README remains in `nbsrc` (#3)
+
 0.4.4 (2018-07-26)
 +++++++++++++++++++
 

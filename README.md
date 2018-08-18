@@ -1,11 +1,11 @@
 # Jupyter notebooks from/to Python or R scripts
 
-[![Pypi](https://img.shields.io/pypi/v/nbsrc.svg)](https://pypi.python.org/pypi/nbsrc)
-[![Pypi](https://img.shields.io/pypi/l/nbsrc.svg)](https://pypi.python.org/pypi/nbsrc)
-[![Build Status](https://travis-ci.com/mwouts/nbsrc.svg?branch=master)](https://travis-ci.com/mwouts/nbsrc)
-[![codecov.io](https://codecov.io/github/mwouts/nbsrc/coverage.svg?branch=master)](https://codecov.io/github/mwouts/nbsrc?branch=master)
+[![Pypi](https://img.shields.io/pypi/v/nbrmd.svg)](https://pypi.python.org/pypi/nbrmd)
+[![Pypi](https://img.shields.io/pypi/l/nbrmd.svg)](https://pypi.python.org/pypi/nbrmd)
+[![Build Status](https://travis-ci.com/mwouts/nbrmd.svg?branch=master)](https://travis-ci.com/mwouts/nbrmd)
+[![codecov.io](https://codecov.io/github/mwouts/nbrmd/coverage.svg?branch=master)](https://codecov.io/github/mwouts/nbrmd?branch=master)
 ![pylint Score](https://mperlet.github.io/pybadge/badges/9.6.svg)
-[![pyversions](https://img.shields.io/pypi/pyversions/nbsrc.svg)](https://pypi.python.org/pypi/nbsrc)
+[![pyversions](https://img.shields.io/pypi/pyversions/nbrmd.svg)](https://pypi.python.org/pypi/nbrmd)
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/mwouts/nbrmd/master?filepath=demo)
 
 Jupyter notebooks are complex files, that contain source code, metadata, and
@@ -18,7 +18,7 @@ edited outside of Jupyter, using
 your favorite text editor, or even standard merge tools if you wish to merge
 multiple contributions to a notebook.
 
-With the `nbsrc` package, any python or R script can be loaded as a notebook
+With the `nbrmd` package, any python or R script can be loaded as a notebook
 in Jupyter. If a classical `ipynb` notebook with a matching name exists,
 outputs for matching inputs are reconstructed. And, if you associate python
 and jupyter files as recommended below, when a `ipynb` notebook opens, the
@@ -110,19 +110,17 @@ is the one used as the reference source for notebook inputs.
 is a python package that represents Jupyter notebooks as R markdown
 files. It is also where notebooks as python scripts are implemented. But
 I felt notebooks as scripts deserved a standalone documentation, and
-that's the main reason for having the `nbsrc` package.
-
-You don't actually need the `nbsrc` package unless you want the command line
-conversion tools.
+that is the (only) reason for writing the `nbsrc` package, which is empty,
+appart from this README.
 
 ## Command line conversion
 
-The `nbsrc` package provides a `nbsrc` script that converts Jupyter notebooks
+The `nbrmd` package provides a `nbsrc` script that converts Jupyter notebooks
  to R or python scripts, and vice-versa.
  
 Install it with 
 ```
-pip install nbsrc --upgrade
+pip install nbrmd --upgrade
 ```
 
 and then use it as:
@@ -133,7 +131,7 @@ nbsrc jupyter.py    -i      # and this, a jupyter.ipynb file
 nbsrc jupyter.py    -i -p   # update the jupyter.ipynb file and preserve outputs that correspond to unchanged inputs
 ```
 
-Alternatively, the `nbsrc` package provides two `nbconvert` exporters that you can use with
+Alternatively, the `nbrmd` package provides two `nbconvert` exporters that you can use with
 ```bash
 nbconvert jupyter.ipynb --to pynotebook
 nbconvert jupyter.ipynb --to rnotebook
